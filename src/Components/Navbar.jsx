@@ -732,8 +732,9 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
+        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
           <div className="px-2 pt-2 pb-4 space-y-1">
             {Object.entries(menuStructure).map(([mainLabel, items]) => (
               <div key={mainLabel} className="space-y-1">
@@ -742,8 +743,8 @@ function Navbar() {
                   onClick={() => toggleMobileMain(mainLabel)}
                   className={`flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium ${
                     openMobileMain === mainLabel
-                      ? "text-blue-600"
-                      : "text-gray-700 hover:text-blue-600"
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                   }`}
                 >
                   {mainLabel}
@@ -764,12 +765,18 @@ function Navbar() {
                           {/* Second-level toggle */}
                           <button
                             onClick={(e) => toggleMobileSub(e, i)}
-                            className="flex items-center justify-between w-full px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-blue-600"
+                            className={`flex items-center justify-between w-full px-3 py-2 rounded-md text-sm font-medium ${
+                              openMobileSub === i
+                                ? "text-blue-600 dark:text-blue-400"
+                                : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                            }`}
                           >
                             <span className="flex items-center">
                               <span
                                 className={`w-1 h-4 mr-2 rounded-full ${
-                                  openMobileSub === i ? "bg-blue-500" : ""
+                                  openMobileSub === i
+                                    ? "bg-blue-500"
+                                    : "bg-transparent"
                                 }`}
                               ></span>
                               {item.label}
@@ -792,7 +799,7 @@ function Navbar() {
                                     href={child.path}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center px-3 py-2 rounded-md text-sm text-gray-700 hover:text-blue-600"
+                                    className="flex items-center px-3 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                                     onClick={() => setMobileOpen(false)}
                                   >
                                     <span className="w-1 h-4 mr-2 rounded-full"></span>
@@ -804,8 +811,8 @@ function Navbar() {
                                     to={child.path}
                                     className={`flex items-center px-3 py-2 rounded-md text-sm ${
                                       location.pathname === child.path
-                                        ? "font-medium text-blue-600"
-                                        : "text-gray-700 hover:text-blue-600"
+                                        ? "font-medium text-blue-600 dark:text-blue-400"
+                                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                                     }`}
                                     onClick={() => setMobileOpen(false)}
                                   >
@@ -829,7 +836,7 @@ function Navbar() {
                           href={item.path}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center px-3 py-2 rounded-md text-sm text-gray-700 hover:text-blue-600"
+                          className="flex items-center px-3 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                           onClick={() => setMobileOpen(false)}
                         >
                           <span className="w-1 h-4 mr-2 rounded-full"></span>
@@ -841,8 +848,8 @@ function Navbar() {
                           to={item.path}
                           className={`flex items-center px-3 py-2 rounded-md text-sm ${
                             location.pathname === item.path
-                              ? "font-medium text-blue-600"
-                              : "text-gray-700 hover:text-blue-600"
+                              ? "font-medium text-blue-600 dark:text-blue-400"
+                              : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                           }`}
                           onClick={() => setMobileOpen(false)}
                         >
