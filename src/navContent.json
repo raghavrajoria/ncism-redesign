@@ -1,0 +1,488 @@
+const menuStructure = {
+  Home: [{ label: "Face Page", path: "/coming-soon" }],
+
+  "About NCISM": [
+    { label: "Introduction", path: "/about/introduction" },
+    { label: "Main Objectives", path: "/about/main-objectives" },
+    { label: "Chairperson", path: "/about/chairperson" },
+    {
+      label: "Autonomous Boards",
+      children: [
+        {
+          label: "Board of Ayurveda (BoA)",
+          path: "/about/board-of-ayurveda",
+        },
+        {
+          label: "Board of Unani, Siddha and Sowa-Rigpa (BUSS)",
+          path: "/about/board-of-unani-siddha-and-sowa-rigpa",
+        },
+        {
+          label:
+            "Board of Ethics and Registration for Indian Systeks of Medicine (BERISM)",
+          path: "/about/board-of-ethics-and-registration-for-indian-systems-of-medicine",
+        },
+        {
+          label:
+            "Medical Assessment and Rating Board for Indian Systems of Medicine (MARBISM)",
+          path: "/about/medical-assessment-and-rating-board-for-indian-systems-of-medicine",
+        },
+      ],
+    },
+    {
+      label: "Composition of Commission ",
+      path: "/about/composition-of-commission",
+    },
+    { label: "Advisory Board", path: "/about/advisory-board" },
+    { label: "Officers of Ncism", path: "/about/officers-ncism" },
+    { label: "Organisational Chart", path: "/about/coming-soon" },
+  ],
+  "Indian Medicine": [
+    {
+      label: "Ayurveda",
+      children: [
+        {
+          label: "Introduction",
+          path: "/ayurveda/introduction",
+        },
+        {
+          label: "List of Ayurveda Colleges",
+          path: "/ayurveda/list-of-colleges",
+        },
+        {
+          label: "Curriculum & Syllabus",
+          children: [
+            {
+              label: "UG",
+              path: "uyurveda/curriculum/ug",
+            },
+            {
+              label: "PG",
+              path: "uyurveda/curriculum/pg",
+            },
+          ],
+        },
+        {
+          label: "Academic Calender",
+          children: [
+            {
+              label: "UG",
+              path: "uyurveda/calender/ug",
+            },
+            {
+              label: "PG",
+              path: "uyurveda/calender/pg",
+            },
+          ],
+        },
+        {
+          label: "library",
+          path: "/ayurveda/library",
+        },
+      ],
+    },
+    {
+      label: "Unani",
+      children: [
+        {
+          label: "Introduction",
+          path: "/unani/introduction",
+        },
+        {
+          label: "Research",
+          path: "/unani/research",
+        },
+        {
+          label: "List of Unani Colleges",
+          path: "/unani/list-of-colleges",
+        },
+        {
+          label: "Curriculum & Syllabus",
+          children: [
+            {
+              label: "Old Syllabus",
+              path: "uyurveda/curriculum/ug",
+            },
+            {
+              label: "New Syllabus",
+              path: "uyurveda/curriculum/pg",
+            },
+          ],
+        },
+        {
+          label: "Academic Calender",
+          children: [
+            {
+              label: "UG",
+              path: "uyurveda/calender/ug",
+            },
+            {
+              label: "PG",
+              path: "uyurveda/calender/pg",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Siddha",
+      children: [
+        {
+          label: "Introduction",
+          path: "/siddha/introduction",
+        },
+
+        {
+          label: "List of Siddha Colleges",
+          path: "/siddha/list-of-colleges",
+        },
+        {
+          label: "Curriculum & Syllabus",
+          children: [
+            {
+              label: "Old Syllabus",
+              path: "siddha/curriculum/ug",
+            },
+            {
+              label: "New Syllabus",
+              path: "siddha/curriculum/pg",
+            },
+          ],
+        },
+        {
+          label: "Academic Calender",
+          children: [
+            {
+              label: "UG",
+              path: "siddha/calender/ug",
+            },
+            {
+              label: "PG",
+              path: "siddha/calender/pg",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "Sowa-Rigpa",
+      children: [
+        {
+          label: "Introduction",
+          path: "/sowa-rigpa/introduction",
+        },
+
+        {
+          label: "List of Sowa-Rigpa Colleges",
+          path: "/sowa-rigpa/list-of-colleges",
+        },
+        {
+          label: "Curriculum & Syllabus",
+          path: "/sowa-rigpa/curriculum-and-syllabus",
+        },
+        {
+          label: "Academic Calender",
+          children: [
+            {
+              label: "UG",
+              path: "sowa-rigpa/calender/ug",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      label: "General",
+      children: [
+        {
+          label: "NCISM Schemes for Financial Assistence ",
+          path: "/general/schemes-financial-assistence ",
+        },
+
+        {
+          label: "Textbook Quality Assessment Scale",
+          path: "/general/textbook-quality",
+        },
+        {
+          label: "Ayush Module for MBBS Internship",
+          path: "/general/ayush-module",
+        },
+        {
+          label: "Transcript Certificate",
+          path: "/general/transcript-certificate",
+        },
+        {
+          label: "Publication Grant Beneficiaries ",
+          path: "/general/publication-grant-beneficiaries",
+        },
+      ],
+    },
+  ],
+  Registration: [
+    {
+      label: "State Board Acts",
+      path: "/registration-main/state-board-acts",
+    },
+    {
+      label: "List of State Boards",
+      path: "/registration-main/list-of-state-boards",
+    },
+    {
+      label: "List of Degrees recognised under 2nd Schedule of IMCC Act 1970",
+      path: "/registration-main/list-of-degrees-under-1970-act ",
+    },
+    {
+      label: "National Register Notifications",
+      path: "/registration-main/development/national-register-notifications",
+    },
+  ],
+
+  "Information Desk": [
+    {
+      label: "Acts & Amendment",
+
+      children: [
+        {
+          label: "IMCC Act 1970",
+          path: "/info-desk/acts-amendment/imcc",
+        },
+        {
+          label: "NCISM Act 2020",
+          path: "/info-desk/acts-amendment/ncism",
+        },
+      ],
+    },
+    {
+      label: "Rules & Regulations",
+
+      children: [
+        {
+          label: "Under IMCC Act 1970",
+          path: "/info-desk/acts-amendment/imcc",
+        },
+        {
+          label: "Under NCISM Act 2020",
+          path: "/info-desk/acts-amendment/ncism",
+        },
+      ],
+    },
+    { label: "Guidelines", path: "/info-desk/Guidelines" },
+    {
+      label: "Approval Process Handbook",
+      path: "/info-desk/approval-process-handbook",
+    },
+
+    {
+      label: "Permission Status ASUSR",
+
+      children: [
+        {
+          label: "Ayurdeva Colleges",
+          path: "/info-desk/ayurveda-colleges-list",
+        },
+        {
+          label: "Unani Colleges",
+          path: "/info-desk/unani-colleges-list",
+        },
+        {
+          label: "Siddha Colleges",
+          path: "/info-desk/siddha-colleges-list",
+        },
+        {
+          label: "Sowa-Rigpa Colleges",
+          path: "/info-desk/sowa-rigpa-colleges-list",
+        },
+      ],
+    },
+
+    {
+      label: "Recognized Medical Qualifications",
+
+      children: [
+        {
+          label: "Under NCISM ACT ",
+          path: "/info-desk/acts-amendment/ncism",
+        },
+        {
+          label: "Under ICCM ACT",
+          path: "/info-desk/acts-amendment/imcc",
+        },
+      ],
+    },
+
+    {
+      label: "Curriculum and Notification",
+      path: "/info-desk/curriculum-and-notification",
+    },
+
+    {
+      label: "Meetings",
+
+      children: [
+        {
+          label: "Under NCISM ACT ",
+          path: "/info-desk/acts-amendment/ncism",
+        },
+        {
+          label: "Under ICCM ACT",
+          path: "/info-desk/acts-amendment/imcc",
+        },
+      ],
+    },
+    {
+      label: "Annual Report",
+
+      children: [
+        {
+          label: "Under NCISM ACT ",
+          path: "/info-desk/acts-amendment/ncism",
+        },
+        {
+          label: "Under ICCM ACT",
+          path: "/info-desk/acts-amendment/imcc",
+        },
+      ],
+    },
+
+    { label: "Information Under RTI Act", path: "/info-desk/info-under-rti" },
+    {
+      label: "Important Court Desicions",
+      path: "/info-desk/important-court-desicions",
+    },
+    { label: "College Locations", path: "/info-desk/colege-locations" },
+  ],
+
+  "E-Learning": [
+    { label: "Electives", path: "/e-learning-electives" },
+    { label: "Ebook", path: "/elearning-ebooks" },
+  ],
+  Rating: [
+    {
+      label: "Ayurveda Colleges",
+      children: [
+        {
+          label: "A.Y 2024-2025",
+          path: "/rating/ayurveda-colleges-ay-2024-25",
+        },
+        {
+          label: "A.Y 2025-2026",
+          path: "/rating/ayurveda-colleges-ay-2025-26",
+        },
+      ],
+    },
+    {
+      label: "Unani Colleges",
+      children: [
+        { label: "A.Y 2024-2025", path: "/rating/Unani-colleges-ay-2024-25" },
+        { label: "A.Y 2025-2026", path: "/rating/Unani-colleges-ay-2025-26" },
+      ],
+    },
+    {
+      label: "Siddha Colleges",
+      children: [
+        { label: "A.Y 2024-2025", path: "/rating/Siddha-colleges-ay-2024-25" },
+        { label: "A.Y 2025-2026", path: "/rating/Siddha-colleges-ay-2025-26" },
+      ],
+    },
+    {
+      label: "Framework for Assesment and rating ASU colleges ",
+      children: [
+        { label: "A.Y 2024-2025", path: "/rating/ASU-colleges-ay-2024-25" },
+        { label: "A.Y 2025-2026", path: "/rating/ASU-colleges-ay-2025-26" },
+      ],
+    },
+  ],
+  Others: [
+    { label: "Download Forms", path: "/others/download-forms" },
+    { label: "Advertisements", path: "/others/advertisements" },
+    { label: "Citizen Charter", path: "/others/citizen-charter" },
+    { label: "Grievance", path: "/others/grievance" },
+    {
+      label: "Award And Achievements ",
+      path: "/others/award-and-achievements",
+    },
+    { label: "Fees", path: "/others/fees" },
+    { label: "Vacancies", path: "/others/vacancies" },
+    { label: "Gallery", path: "/others/gallery" },
+    { label: "Archives", path: "/others/archives" },
+    { label: "Contact Us", path: "/others/contact-us" },
+  ],
+  "Vigilance Corner": [
+    {
+      label: "CVO",
+      path: "/vigilance-corner/cvo",
+    },
+    {
+      label: "Logged Complaints",
+      path: "/vigilance-corner/logged-complaints",
+    },
+    {
+      label: "Goi (PIVPI) Resolution",
+      path: "/vigilance-corner/goi-resolution",
+    },
+  ],
+  RTI: [
+    {
+      label: "Sou Moto Disclosure",
+      path: "/rti/sou-moto-disclosure",
+    },
+  ],
+  Results: [
+    {
+      label: "NTET 2024",
+      children: [
+        {
+          label: "Link to Digilocker",
+          path: "https://www.digilocker.gov.in/",
+        },
+      ],
+    },
+    {
+      label: "How to access Digilocker with URL",
+      children: [
+        {
+          label: "SoP for Access NCISM certificates from DigiLocker",
+          path: "https://ncismindia.org/SoP%20for%20access%20NCISM%20certificate%20from%20DigiLocker.pdf",
+        },
+      ],
+    },
+  ],
+
+  Login: [
+    {
+      label: "Institution Login",
+      path: "/",
+    },
+    {
+      label: "Apply for restoring of withheld teacher's code",
+      path: "/",
+    },
+    {
+      label: "Application Under Section 29 URL Login",
+      path: "/",
+    },
+    {
+      label: "Visitor's Login",
+      path: "/",
+    },
+    {
+      label: "Practitioner Login",
+      path: "/",
+    },
+    {
+      label: "State Board Login",
+      path: "/",
+    },
+    {
+      label: "Institute Login for Ayurveda Day",
+      path: "/",
+    },
+    {
+      label: "Apply for Registration",
+      path: "/",
+    },
+    {
+      label: "State Board Login",
+      path: "/",
+    },
+  ],
+};

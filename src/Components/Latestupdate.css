@@ -1,0 +1,19 @@
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.slide-content {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  animation: slideUp 15s linear infinite;
+}
+
+.slide-content:hover {
+  animation-play-state: paused;
+}

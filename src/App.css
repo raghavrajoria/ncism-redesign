@@ -1,0 +1,12 @@
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 15s linear infinite;
+}
