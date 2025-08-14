@@ -7,12 +7,14 @@ import ScrollToTopButton from "./Components/ScrollToTopButton"; // <-- New
 
 import "swiper/css";
 import "swiper/css/navigation";
+import BrandingStrip from "./Components/BrandingStrip";
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-colors">
         <Topbar />
+        <BrandingStrip />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
