@@ -437,7 +437,7 @@ function IntroductionSection() {
             <div>
               <h3 className="font-semibold text-blue-900">Chairperson</h3>
               <p className="text-sm text-gray-700 leading-snug">
-                [Chairperson's designation and role description goes here...]
+                Prof (Dr.) B.L. Mehra
               </p>
             </div>
           </div>
