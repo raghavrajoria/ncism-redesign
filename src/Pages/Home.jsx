@@ -23,6 +23,7 @@ import NewsTicker from "../Components/NewsTicker";
 import LatestUpdatesSection from "../Components/LatestUpdatesSection";
 import LogoSlider from "../Components/LogoSlider";
 import VisionMission from "../Components/VisionMission";
+import IndiaMap from "../Components/IndiaCollegesMap";
 
 const Home = () => {
   return (
@@ -39,6 +40,14 @@ const Home = () => {
       <IndianSystemsOfMedicine />
       <NationalCommission />
       <LatestUpdatesSection />
+
+      <div>
+        <h2 className="text-center text-2xl font-bold text-blue-700 ">
+          List of Colleges under NCISM
+        </h2>
+        <IndiaMap />
+      </div>
+
       <LogoSlider />
     </div>
   );
