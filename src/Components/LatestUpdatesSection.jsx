@@ -1,5 +1,6 @@
 import React from "react";
-import "./Latestupdate.css";
+import { motion } from "framer-motion";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 const LatestUpdates = () => {
   const leftUpdate = [
@@ -60,45 +61,62 @@ const LatestUpdates = () => {
     },
   ];
 
-  const VerticalSlider = ({ data }) => (
-    <div className="overflow-hidden h-80 border border-gray-300 rounded relative">
-      <div className="slide-content">
+  const Card = ({ data }) => (
+    <motion.div
+      className="bg-white rounded-xl shadow-md p-5 overflow-hidden relative border border-gray-200"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="space-y-6"
+        animate={{ y: ["0%", "-50%"] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        whileHover={{ animationPlayState: "paused" }}
+      >
         {[...Array(2)].map((_, repeatIndex) => (
-          <div key={repeatIndex} className="space-y-6 p-4">
+          <div key={repeatIndex} className="space-y-6">
             {data.map((section, idx) => (
               <div key={idx}>
-                <h3 className="font-bold text-gray-800 mb-2">
+                <h3 className="text-lg font-semibold text-blue-700 border-b pb-1 mb-2">
                   {section.heading}
                 </h3>
-                <ul className="space-y-1">
+                <ul className="space-y-2">
                   {section.items.map((item, i) => (
-                    <li key={i}>
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.1 }}
+                    >
                       <a
                         href={item.link}
-                        className="text-blue-600 hover:underline flex items-start"
+                        className="flex items-start gap-2 text-gray-700 hover:text-blue-600 transition"
                       >
-                        <span className="mr-1">➤</span>
-                        {item.text}
+                        <ArrowRightIcon className="w-4 h-4 mt-1 text-blue-500" />
+                        <span>{item.text}</span>
                       </a>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>
             ))}
           </div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 
   return (
-    <div className="p-4">
-      <h2 className="font-bold text-xl mb-4 text-center">LATEST UPDATE</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <VerticalSlider data={leftUpdate} />
-        <VerticalSlider data={rightUpdate} />
+    <section className="p-6 bg-gray-50">
+      <h2 className="font-bold text-2xl mb-6 text-center text-blue-800 tracking-wide">
+        LATEST UPDATES
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card data={leftUpdate} />
+        <Card data={rightUpdate} />
       </div>
-    </div>
+    </section>
   );
 };
 

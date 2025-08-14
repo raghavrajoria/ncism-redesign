@@ -1,20 +1,28 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
-
-import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import ServiceImg from "../assets/ServiceImg.jpg";
-
+import ChairpersonImg from "../assets/chairperson.png";
+import MinisterImg from "../assets/MinisterImg.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  GraduationCap,
+  Hospital,
+  Globe2,
+  Flag,
+  Dna,
+  ClipboardCheck,
+  BookOpenCheck,
+  MessageCircle,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 import HomeSlider from "../Components/HomeSlider";
 import NewsTicker from "../Components/NewsTicker";
-import MinisterImg from "../assets/MinisterImg.png";
-import Vision from "../assets/VisionImg.jpg";
 import LatestUpdatesSection from "../Components/LatestUpdatesSection";
+import LogoSlider from "../Components/LogoSlider";
+import VisionMission from "../Components/VisionMission";
 
 const Home = () => {
   return (
@@ -26,52 +34,12 @@ const Home = () => {
       <div className="mt-2">
         <NewsTicker />
       </div>
-
-      <section className="p-5 bg-white dark:bg-gray-900">
-        <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-          INTRODUCTION
-        </h2>
-        <section className="bg-white dark:bg-gray-800">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-12 items-center gap-8">
-              {/* Left Side */}
-              <div className="md:col-span-8">
-                <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">
-                  In pursuance of the provisions of National Commission for
-                  Indian System of Medicine (NCISM) Act 2020 (14 of 2020), the
-                  Indian Medicine Central Council (IMCC) Act 1970 (48 of 1970)
-                  has been repealed and all the provisions of the National
-                  Commission for Indian System of Medicine (NCISM) has been come
-                  into force with effect from the 11th day of June 2021. Under
-                  the provisions of section 59 (2) of NCISM Act 2020 the Central
-                  Government has constituted the Commission and four Autonomous
-                  boards on the same day. Medical standards, requirements and
-                  other provisions of the IMCC Act 1970 and the rules and
-                  regulations made thereunder shall continue to be in force and
-                  operate till new standards or requirements as specified under
-                  new act or rules and regulations made thereunder come into
-                  force. However, the provisions of concerned regulations which
-                  are inconsistent with the provisions of NCISM Act 2020 shall
-                  not be applicable.
-                </p>
-              </div>
-              {/* Right Side */}
-              <div className="md:col-span-4">
-                <img
-                  src={MinisterImg}
-                  alt="Introduction"
-                  className="rounded-lg shadow-lg w-full"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
-
-      <VisionAndMission />
+      <IntroductionSection />
+      <VisionMission />
       <IndianSystemsOfMedicine />
       <NationalCommission />
       <LatestUpdatesSection />
+      <LogoSlider />
     </div>
   );
 };
@@ -315,113 +283,168 @@ const IndianSystemsOfMedicine = () => {
   );
 };
 
-const VisionAndMission = () => {
-  const points = [
-    "Improve access to quality and affordable Ayurveda, Unani, Siddha and Sowa-Rigna (AUS&SR) medical education",
-    "Ensure availability of adequate and high quality AUS&SR medical professionals in all parts of the country",
-    "Promote equitable and universal healthcare that encourages community health perspective and makes services of AUS&SR medical professionals accessible to all the citizens",
-    "Encourage medical professionals to adopt latest medical research in their work and to contribute to research",
-    "Objectively assess and rate medical institutions periodically in a transparent manner",
-    "Maintain a National AUS&SR medical register for India",
-    "Enforce high ethical standards in all aspects of AUS&SR medical services",
-    "Have an effective grievance redressal mechanism.",
-  ];
-  return (
-    <>
-      {/* vision div */}
-      <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          {/* Left Column */}
-          <div>
-            <h2 className="text-2xl font-bold mb-4">VISION AND MISSION</h2>
-            <p className="mb-6 text-base leading-relaxed">
-              The Aims and objectives of the National Commission for Indian
-              System of Medicine are to -
-            </p>
-            <ul className="space-y-5">
-              {points.map((point, index) => (
-                <li
-                  key={index}
-                  className="flex items-start group transition-colors"
-                >
-                  <div
-                    className={`flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full text-white font-bold text-lg mr-4 transition-colors duration-300
-                bg-blue-800 group-hover:bg-orange-500`}
-                  >
-                    {index + 1}
-                  </div>
-                  <p className="text-base leading-relaxed">{point}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right Column */}
-          <div className="h-full">
-            <img
-              src={Vision}
-              alt="Vision and Mission"
-              className="rounded-lg shadow-lg w-full h-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
 const NationalCommission = () => {
   const points = [
-    "To provide medical education system that improves access to quality and affordable medical education,",
-    "To ensure availability of adequate and high-quality medical professionals of Indian System of Medicine in all parts of the country",
-    "To promote equitable and universal healthcare that encourages community health perspective and makes services of such medical professionals accessible and affordable to all the citizens;",
-    "To promote national health goals;",
-    "To encourage such medical professionals to adopt latest medical research in their work and to contribute to research;",
-    "To carry out Periodic and transparent assessment of medical institutions",
-    "To facilitate maintenance of a medical register of Indian System of Medicine for India and enforce high ethical standards in all aspects of medical services;",
-    "To provide Medical Education System that is flexible to adapt to the changing needs and has an effective grievance redressal mechanism and for matters connected therewith or incidental thereto",
+    {
+      icon: <GraduationCap className="w-6 h-6 text-blue-600" />,
+      title: "Quality Medical Education",
+      desc: "To provide a medical education system that improves access to quality and affordable learning.",
+    },
+    {
+      icon: <Hospital className="w-6 h-6 text-blue-600" />,
+      title: "Healthcare Accessibility",
+      desc: "Ensure high-quality Indian System of Medicine professionals are available across the country.",
+    },
+    {
+      icon: <Globe2 className="w-6 h-6 text-blue-600" />,
+      title: "Equitable Healthcare",
+      desc: "Promote universal healthcare that is affordable and accessible to all citizens.",
+    },
+    {
+      icon: <Flag className="w-6 h-6 text-blue-600" />,
+      title: "National Health Goals",
+      desc: "Contribute actively to achieving the nation's healthcare and wellness objectives.",
+    },
+    {
+      icon: <Dna className="w-6 h-6 text-blue-600" />,
+      title: "Research & Innovation",
+      desc: "Encourage adoption of latest research and promote contribution to medical studies.",
+    },
+    {
+      icon: <ClipboardCheck className="w-6 h-6 text-blue-600" />,
+      title: "Institution Assessment",
+      desc: "Carry out periodic and transparent evaluation of medical institutions.",
+    },
+    {
+      icon: <BookOpenCheck className="w-6 h-6 text-blue-600" />,
+      title: "Ethical Standards",
+      desc: "Maintain a medical register and enforce high ethics in medical services.",
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6 text-blue-600" />,
+      title: "Adaptable Education System",
+      desc: "Ensure flexibility to meet evolving needs with strong grievance redressal.",
+    },
   ];
+
   return (
-    <>
-      {/* vision div */}
-      <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-          {/* Left Column */}
-          <div>
-            <h2 className="text-2xl font-bold mb-4">
-              NATIONAL COMMISSION FOR INDIAN SYSTEM OF MEDICINE
-            </h2>
+    <div className="bg-gradient-to-b from-white to-blue-50 py-16 px-4">
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Title and Description */}
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+            National Commission for Indian System of Medicine
+          </h2>
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            Working towards excellence in medical education, research, and
+            healthcare accessibility for the Indian System of Medicine.
+          </p>
+        </div>
 
-            <ul className="space-y-5">
-              {points.map((point, index) => (
-                <li
-                  key={index}
-                  className="flex items-start group transition-colors"
-                >
-                  <div
-                    className={`flex-shrink-0 flex items-center justify-center w-10 h-10 rounded-full text-white font-bold text-lg mr-4 transition-colors duration-300
-                bg-blue-800 group-hover:bg-orange-500`}
-                  >
-                    {index + 1}
-                  </div>
-                  <p className="text-base leading-relaxed">{point}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right Column */}
-          <div className="h-full">
-            <img
-              src={Vision}
-              alt="Vision and Mission"
-              className="rounded-lg shadow-lg w-full h-full object-cover"
-            />
-          </div>
+        {/* Points Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {points.map((point, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-xl shadow-md hover:shadow-lg p-6 transition-all border border-blue-100"
+            >
+              <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                {point.icon}
+              </div>
+              <h3 className="text-lg font-semibold text-blue-800 mb-2">
+                {point.title}
+              </h3>
+              <p className="text-gray-600 text-sm">{point.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
+
+function IntroductionSection() {
+  return (
+    <section className="bg-white py-12 px-6 md:px-16">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+        {/* Introduction Text */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="lg:col-span-2"
+        >
+          <h2 className="text-3xl font-bold text-blue-900 mb-4">
+            Introduction
+          </h2>
+          <p className="text-gray-700 leading-relaxed text-justify">
+            In pursuance of the provisions of National Commission for Indian
+            System of Medicine (NCISM) Act 2020 (14 of 2020), the Indian
+            Medicine Central Council (IMCC) Act 1970 (48 of 1970) has been
+            repealed and all the provisions of the National Commission for
+            Indian System of Medicine (NCISM) have come into force with effect
+            from the 11th day of June 2021. Under the provisions of section 59
+            (2) of NCISM Act 2020, the Central Government has constituted the
+            Commission and four Autonomous Boards on the same day. Medical
+            standards, requirements, and other provisions of the IMCC Act 1970
+            and the rules and regulations made thereunder shall continue to be
+            in force till new standards or requirements as specified under the
+            new act or rules and regulations come into force. However, the
+            provisions of concerned regulations which are inconsistent with the
+            provisions of NCISM Act 2020 shall not be applicable.
+          </p>
+        </motion.div>
+
+        {/* Profiles */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="space-y-6"
+        >
+          {/* Minister Card */}
+          <div className="flex items-start gap-4 bg-blue-50 p-4 rounded-xl shadow-md hover:shadow-lg transition">
+            <img
+              src={MinisterImg}
+              alt="Shri Prataprao Jadhav"
+              className="w-20 h-24 object-cover rounded-lg border"
+            />
+            <div>
+              <h3 className="font-semibold text-blue-900">
+                Shri Prataprao Jadhav
+              </h3>
+              <p className="text-sm text-gray-700 leading-snug">
+                Hon’ble Minister of State (Independent Charge) of Ministry of
+                AYUSH and Minister of State of Ministry of Health & Family
+                Welfare, Government of India
+              </p>
+            </div>
+          </div>
+
+          {/* Chairperson Card */}
+          <div className="flex items-start gap-4 bg-blue-50 p-4 rounded-xl shadow-md hover:shadow-lg transition">
+            <img
+              src={ChairpersonImg}
+              alt="Chairperson"
+              className="w-20 h-24 object-cover rounded-lg border"
+            />
+            <div>
+              <h3 className="font-semibold text-blue-900">Chairperson</h3>
+              <p className="text-sm text-gray-700 leading-snug">
+                [Chairperson's designation and role description goes here...]
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
 export default Home;
