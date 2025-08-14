@@ -435,9 +435,12 @@ function IntroductionSection() {
               className="w-20 h-24 object-cover rounded-lg border"
             />
             <div>
-              <h3 className="font-semibold text-blue-900">Chairperson</h3>
-              <p className="text-sm text-gray-700 leading-snug">
+              <h3 className="font-semibold text-blue-900">
+                {" "}
                 Prof (Dr.) B.L. Mehra
+              </h3>
+              <p className="text-sm text-gray-700 leading-snug">
+                Chairperson of NCISM
               </p>
             </div>
           </div>
