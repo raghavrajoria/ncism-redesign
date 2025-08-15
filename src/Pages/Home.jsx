@@ -38,13 +38,14 @@ const Home = () => {
       <IntroductionSection />
       <VisionMission />
       <IndianSystemsOfMedicine />
-      <NationalCommission />
       <div>
         <h2 className="text-center text-2xl font-bold text-blue-700 ">
           List of Colleges under NCISM
         </h2>
         <IndiaMap />
       </div>
+      <NationalCommission />
+
       <LatestUpdatesSection />
       <LogoSlider />
     </div>
