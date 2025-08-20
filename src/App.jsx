@@ -8,6 +8,13 @@ import ScrollToTopButton from "./Components/ScrollToTopButton"; // <-- New
 import "swiper/css";
 import "swiper/css/navigation";
 import BrandingStrip from "./Components/BrandingStrip";
+import Introduction from "./Pages/Introduction";
+import ComingSoon from "./Pages/ComingSoom";
+import MainObjectives from "./Pages/MainObjectives";
+import Chairperson from "./Pages/Chairperson";
+import AutonomousBoards from "./Pages/AutonomousBoards";
+import { CompositionofCommission } from "./Pages/CompositionofCommission";
+import MembersofAdvisory from "./Pages/MembersofAdvisory";
 
 function App() {
   return (
@@ -18,10 +25,19 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about/introduction" element={<Introduction />} />
+          <Route path="/about/main-objectives" element={<MainObjectives />} />
+          <Route path="/about/chairperson" element={<Chairperson />} />
           <Route
-            path="/about/Genesis"
-            element={<h1 className="p-4">Genesis Page</h1>}
+            path="/about/board-of-ayurveda"
+            element={<AutonomousBoards />}
           />
+
+          <Route
+            path="/about/composition-of-commission"
+            element={<CompositionofCommission />}
+          />
+          <Route path="/about/advisory-board" element={<MembersofAdvisory />} />
         </Routes>
         <ScrollToTopButton /> {/* <-- Always visible when scrolled */}
         <Footer />

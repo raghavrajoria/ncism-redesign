@@ -500,7 +500,6 @@ const menuStructure = {
 };
 
 function Navbar() {
-  // const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const location = useLocation();

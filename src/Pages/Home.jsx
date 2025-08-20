@@ -38,7 +38,7 @@ const Home = () => {
       <IntroductionSection />
       <VisionMission />
       <IndianSystemsOfMedicine />
-      <div>
+      <div className="" style={{ backgroundColor: "grey" }}>
         <h2 className="text-center text-2xl font-bold text-blue-700 ">
           List of Colleges under NCISM
         </h2>
@@ -291,63 +291,80 @@ const IndianSystemsOfMedicine = () => {
   );
 };
 
-const NationalCommission = () => {
+const NationalCommission = ({ darkMode = false }) => {
   const points = [
     {
-      icon: <GraduationCap className="w-6 h-6 text-blue-600" />,
+      icon: <GraduationCap className="w-6 h-6" />,
       title: "Quality Medical Education",
       desc: "To provide a medical education system that improves access to quality and affordable learning.",
     },
     {
-      icon: <Hospital className="w-6 h-6 text-blue-600" />,
+      icon: <Hospital className="w-6 h-6" />,
       title: "Healthcare Accessibility",
       desc: "Ensure high-quality Indian System of Medicine professionals are available across the country.",
     },
     {
-      icon: <Globe2 className="w-6 h-6 text-blue-600" />,
+      icon: <Globe2 className="w-6 h-6" />,
       title: "Equitable Healthcare",
       desc: "Promote universal healthcare that is affordable and accessible to all citizens.",
     },
     {
-      icon: <Flag className="w-6 h-6 text-blue-600" />,
+      icon: <Flag className="w-6 h-6" />,
       title: "National Health Goals",
       desc: "Contribute actively to achieving the nation's healthcare and wellness objectives.",
     },
     {
-      icon: <Dna className="w-6 h-6 text-blue-600" />,
+      icon: <Dna className="w-6 h-6" />,
       title: "Research & Innovation",
       desc: "Encourage adoption of latest research and promote contribution to medical studies.",
     },
     {
-      icon: <ClipboardCheck className="w-6 h-6 text-blue-600" />,
+      icon: <ClipboardCheck className="w-6 h-6" />,
       title: "Institution Assessment",
       desc: "Carry out periodic and transparent evaluation of medical institutions.",
     },
     {
-      icon: <BookOpenCheck className="w-6 h-6 text-blue-600" />,
+      icon: <BookOpenCheck className="w-6 h-6" />,
       title: "Ethical Standards",
       desc: "Maintain a medical register and enforce high ethics in medical services.",
     },
     {
-      icon: <MessageCircle className="w-6 h-6 text-blue-600" />,
+      icon: <MessageCircle className="w-6 h-6" />,
       title: "Adaptable Education System",
       desc: "Ensure flexibility to meet evolving needs with strong grievance redressal.",
     },
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white to-blue-50 py-16 px-4">
+    <div
+      className={`py-16 px-4 ${
+        darkMode ? "bg-gray-900" : "bg-gradient-to-b from-white to-blue-50"
+      }`}
+    >
       <div className="max-w-6xl mx-auto text-center">
         {/* Title and Description */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-4">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <h2
+            className={`text-3xl md:text-4xl font-bold mb-4 ${
+              darkMode ? "text-blue-400" : "text-blue-800"
+            }`}
+          >
             National Commission for Indian System of Medicine
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p
+            className={`text-lg max-w-3xl mx-auto ${
+              darkMode ? "text-gray-300" : "text-gray-700"
+            }`}
+          >
             Working towards excellence in medical education, research, and
             healthcare accessibility for the Indian System of Medicine.
           </p>
-        </div>
+        </motion.div>
 
         {/* Points Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -356,17 +373,42 @@ const NationalCommission = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md hover:shadow-lg p-6 transition-all border border-blue-100"
+              whileHover={{ y: -5 }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.05,
+                hover: { duration: 0.2 },
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className={`rounded-xl p-6 transition-all border ${
+                darkMode
+                  ? "bg-gray-800 border-gray-700 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-900/20"
+                  : "bg-white border-blue-100 hover:border-blue-300 hover:shadow-lg"
+              }`}
             >
-              <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+              <div
+                className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto ${
+                  darkMode
+                    ? "bg-blue-900/30 text-blue-400"
+                    : "bg-blue-50 text-blue-600"
+                }`}
+              >
                 {point.icon}
               </div>
-              <h3 className="text-lg font-semibold text-blue-800 mb-2">
+              <h3
+                className={`text-lg font-semibold mb-2 ${
+                  darkMode ? "text-blue-400" : "text-blue-800"
+                }`}
+              >
                 {point.title}
               </h3>
-              <p className="text-gray-600 text-sm">{point.desc}</p>
+              <p
+                className={`text-sm ${
+                  darkMode ? "text-gray-300" : "text-gray-600"
+                }`}
+              >
+                {point.desc}
+              </p>
             </motion.div>
           ))}
         </div>
